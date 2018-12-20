@@ -6,7 +6,7 @@
 /*   By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 12:38:00 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/20 16:57:15 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/20 17:08:43 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ typedef struct	s_tetrimino
 
 void		ft_assert(int exp);
 t_list		*handle_file(char *path);
-char		**fillit(t_list *tetlist);
+int			fillit(t_list *tetlist);
 void		display_usage(void);
-void		display_solution(char **sol);
+void		display_solution(t_list *tetlist, int n);
 
 #endif

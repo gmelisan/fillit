@@ -6,7 +6,7 @@
 /*   By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 12:34:58 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/20 15:46:50 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/20 17:05:40 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		main(int argc, char **argv)
 {
 	t_list	*tetlist;
-	char	**solution;
+	int		n;
 
 	if (argc != 2)
 	{
@@ -24,8 +24,7 @@ int		main(int argc, char **argv)
 	}
 	tetlist = handle_file(argv[1]);
 	ft_assert(tetlist != NULL);
-	solution = fillit(tetlist);
-	ft_assert(solution != NULL);
-	display_solution(solution);
+	n = fillit(tetlist);
+	display_solution(tetlist, n);
 	return (0);
 }

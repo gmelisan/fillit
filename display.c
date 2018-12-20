@@ -6,7 +6,7 @@
 /*   By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:17:36 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/20 15:47:04 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/20 17:10:15 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,9 @@ void	display_usage(void)
 	ft_putendl("in order to create the smallest square possible.");
 }
 
-void	display_solution(char **sol)
+void	display_solution(t_list *tetlist, int n)
 {
-	int i;
-
-	i = 0;
-	while (sol[i])
-		ft_putendl(sol[i++]);
+	if (tetlist)
+		ft_putnbr(n);
+	ft_putstr("\n");
 }

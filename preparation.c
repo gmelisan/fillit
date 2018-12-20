@@ -6,7 +6,7 @@
 /*   By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:25:56 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/20 16:38:23 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/20 17:06:32 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,12 @@ t_list	*handle_file(char *path)
 	while (1)
 	{
 		ret = ft_get_lines(fd, &lines, 4);
-		ft_assert(ret == 4);
+		ft_assert(ret == 4); 
 		if (check_tet(lines))
 		{
 			ft_lstaddback(&tetlist, ft_lstnew(NULL, 0));
 			
 		}
-		ret = ft_get_lines(fd, 
 	}
 	return (NULL);
 }
