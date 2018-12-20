@@ -1,14 +1,14 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gmelisan <gmelisan@student.42.fr>          +#+  +:+       +#+         #
+#    By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 12:48:23 by gmelisan          #+#    #+#              #
-#    Updated: 2018/12/20 12:21:38 by gmelisan         ###   ########.fr        #
+#    Updated: 2018/12/20 16:21:30 by kemmeric         ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 NAME = libft.a
 INCDIR = ./includes
@@ -29,7 +29,8 @@ ft_strsub.o ft_strjoin.o ft_strtrim.o ft_strsplit.o ft_itoa.o \
 ft_putchar.o ft_putstr.o ft_putendl.o ft_putnbr.o ft_putchar_fd.o \
 ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o \
 ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o ft_lstmap.o \
-ft_abs.o ft_swap.o ft_range.o ft_power.o ft_realloc.o get_next_line.o
+ft_abs.o ft_swap.o ft_range.o ft_power.o ft_realloc.o get_next_line.o \
+ft_lstaddback.o
 
 all: $(NAME)
 
