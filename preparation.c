@@ -6,7 +6,7 @@
 /*   By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:25:56 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/20 15:48:54 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/20 16:16:14 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ int		ft_get_lines(int fd, char ***lines, int n)
 t_list	*handle_file(char *path)
 {
 	int			fd;
-	/* t_tetrimino	*tetriminos; */
 	int			ret;
-	char		**lines;
+	t_list		*tetlist;
 
 	fd = open(path, O_RDONLY);
 
+	
 	ret = ft_get_lines(fd, &lines, 4);
 
 	return (NULL);
