@@ -6,11 +6,16 @@
 /*   By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:25:56 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/20 16:16:14 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/20 16:38:23 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+/* 
+** Gets array of n lines readed from fd. Returns number of readed lines
+** or -1 in case of error.
+*/
 
 int		ft_get_lines(int fd, char ***lines, int n)
 {
@@ -34,23 +39,38 @@ int		ft_get_lines(int fd, char ***lines, int n)
 				i--;
 			}
 			ft_memdel((void **)lines);
-			return (0);
+			return (-1);
 		}
 		i++;
 	}
 	return (i);
 }
 
+int		check_tet(char **lines)
+{
+	return (1);
+}
+
 t_list	*handle_file(char *path)
 {
 	int			fd;
 	int			ret;
+	char		**lines;
 	t_list		*tetlist;
 
 	fd = open(path, O_RDONLY);
 
-	
-	ret = ft_get_lines(fd, &lines, 4);
-
+	tetlist = NULL;
+	while (1)
+	{
+		ret = ft_get_lines(fd, &lines, 4);
+		ft_assert(ret == 4);
+		if (check_tet(lines))
+		{
+			ft_lstaddback(&tetlist, ft_lstnew(NULL, 0));
+			
+		}
+		ret = ft_get_lines(fd, 
+	}
 	return (NULL);
 }
