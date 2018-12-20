@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strarrdel.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 12:34:58 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/20 20:17:33 by kemmeric         ###   ########.fr       */
+/*   Created: 2018/12/03 16:01:22 by kemmeric          #+#    #+#             */
+/*   Updated: 2018/12/20 19:56:05 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-void	lstdel_callback(void *content, size_t content_size)
+/*
+** Clear array of strings delimited by 0
+*/
+
+void	ft_strarrdel(char ***tab)
 {
-	ft_memdel(&content);
-	content_size = 0;
-}
+	size_t	i;
+	char	**t;
 
-int		main(int argc, char **argv)
-{
-	t_list	*tetlist;
-	int		n;
-
-	if (argc != 2)
+	if (tab == NULL || *tab == NULL)
+		return ;
+	t = *tab;
+	i = 0;
+	while (t[i])
 	{
-		display_usage();
-		return (0);
+		ft_strdel(&(t[i]));
+		i++;
 	}
-	tetlist = handle_file(argv[1]);
-	ft_assert(tetlist != NULL);
-	n = fillit(tetlist);
-	display_solution(tetlist, n);
-	ft_lstdel(&tetlist, &lstdel_callback);
-	return (0);
+	ft_memdel((void**)tab);
 }
