@@ -1,5 +1,6 @@
 #include "fillit.h"
 
+// gcc -Llibft -lft test.c fillit.c display.c -Ilibft/includes -ggdb
 
 t_tet		*newtet(int width, int height)
 {
@@ -10,6 +11,7 @@ t_tet		*newtet(int width, int height)
 	{
 		t->width = width;
 		t->height = height;
+		t->next = NULL;
 	}
 	return (t);
 }
@@ -53,7 +55,7 @@ int 		main(void)
 	c.x = 1;
 	c.y = 1;
 	t->next->coord[3] = c;
-
+/*
 	// ##
 	//  #
 	//  #
@@ -70,8 +72,7 @@ int 		main(void)
 	c.x = 1;
 	c.y = 2;
 	t->next->next->coord[3] = c;
-
-
+*/
 	mapsize = fillit(t);
 	display_solution(t, mapsize);
 

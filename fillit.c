@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:27:21 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/22 19:01:56 by kemmeric         ###   ########.fr       */
+/*   Updated: 2018/12/22 19:54:46 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 /*
 ** Algorithm:
+** 0) Calc minimum size of a map with sqrt(tetriminos * 4)
 ** 1) Set "cur" tetrimino abs_coord to the current pos and check for collisions
 **    (between other tetriminos and bounds of map mapsize)
 ** 2) Increase current pos and do step 1) in recursion
-** 3) If "cur" tetrimino is null then solution was found (all on the map)
+** 3) If "cur" tetrimino is null then solution was found (all tets on the map)
 */
 
 int		find_collisions(t_tet *tets, t_tet *cur, int mapsize)
@@ -72,15 +73,26 @@ int		find_solution(t_tet *tets, t_tet *cur, int mapsize)
 	return (0);
 }
 
+size_t		ft_tetsize(t_tet *tets)
+{
+	size_t	size;
+
+	size = 0;
+	while (tets)
+	{
+		tets = tets->next;
+		size++;
+	}
+	return (size);
+}
+
 int		fillit(t_tet *tets)
 {
 	int	mapsize;
 
 	if (!tets)
 		return (0);
-	mapsize = tets->width > tets->height
-		? tets->width
-		: tets->height;
+	mapsize = ft_sqrt(ft_tetsize(tets) * 4);
 	while (1)
 	{
 		if (find_solution(tets, tets, mapsize))
