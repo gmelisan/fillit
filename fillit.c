@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:27:21 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/20 20:28:48 by kemmeric         ###   ########.fr       */
+/*   Updated: 2018/12/22 19:01:56 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,86 +14,78 @@
 
 /*
 ** Algorithm:
-** 1) Set tetrimino abs_coord to the current pos x,y and check for collisions
-**    (between other tetriminos and bounds of map size)
-** 2) Increase current pos and do step one in recursion
-** TODO: handle all possible positions (move last tetrimino pos if there is no solution)
+** 1) Set "cur" tetrimino abs_coord to the current pos and check for collisions
+**    (between other tetriminos and bounds of map mapsize)
+** 2) Increase current pos and do step 1) in recursion
+** 3) If "cur" tetrimino is null then solution was found (all on the map)
 */
 
-int				find_collisions(t_list *tetlist, t_list *cur, int size)
+int		find_collisions(t_tet *tets, t_tet *cur, int mapsize)
 {
-	int			i;
-	t_tetrimino	*t1;
-	t_tetrimino	*t2;
+	int	a;
+	int	b;
 
-	t2 = ((t_tetrimino*)cur->content);
-	if (t2->abs_coord.x + t2->width > size || t2->abs_coord.y + t2->height > size)
+	if (cur->abs_coord.x + cur->width > mapsize ||
+		cur->abs_coord.y + cur->height > mapsize)
 		return (1);
-	while (tetlist && tetlist != cur)
+	while (tets && tets != cur)
 	{
-		t1 = ((t_tetrimino*)tetlist->content);
-		i = 0;
-		while (i < 4)
+		a = -1;
+		while (++a < 4)
 		{
-			if (t2->abs_coord.x + t2->coord[i].x == t2->abs_coord.x + t2->coord[i].x &&
-				t2->abs_coord.y + t2->coord[i].y == t2->abs_coord.y + t2->coord[i].y)
+			b = -1;
+			while (++b < 4)
+			{
+				if (cur->abs_coord.x + cur->coord[a].x ==
+					tets->abs_coord.x + tets->coord[b].x &&
+					cur->abs_coord.y + cur->coord[a].y ==
+					tets->abs_coord.y + tets->coord[b].y)
+					return (1);
+			}
+		}
+		tets = tets->next;
+	}
+	return (0);
+}
+
+int		find_solution(t_tet *tets, t_tet *cur, int mapsize)
+{
+	int	x;
+	int	y;
+
+	if (cur == NULL)
+		return (1);
+	y = -1;
+	while (++y < mapsize)
+	{
+		x = -1;
+		while (++x < mapsize)
+		{
+			cur->abs_coord.x = x;
+			cur->abs_coord.y = y;
+			if (find_collisions(tets, cur, mapsize))
+				continue ;
+			if (find_solution(tets, cur->next, mapsize))
 				return (1);
 		}
-		tetlist = tetlist->next;
 	}
 	return (0);
 }
 
-int			find_solution(int x, int y, int size, t_list *tetlist)
+int		fillit(t_tet *tets)
 {
-	t_list		*first;
-	t_tetrimino	*t;
+	int	mapsize;
 
-	first = tetlist;
-	while (y < size)
-	{
-		while (x < size)
-		{
-			t = ((t_tetrimino*)tetlist->content);
-			t->abs_coord.x = x;
-			t->abs_coord.y = y;
-			x++; //= t->width; //FIXME: set next x pos
-			if (find_collisions(first, tetlist, size))
-				break ;
-			if (!(tetlist = tetlist->next))
-				return (1); // solution found
-			if (find_solution(x, y, size, tetlist))
-				return (1); // solution found
-		}
-		y++;
-		if (y != size)
-			x = 0;
-	}
-	if (y == size && x == size)
-		return (0); // FIXME: solution not found for this size (not all tetriminos on the board)
-	// FIXME: increase position and try again
-	find_solution(x++, y, size, tetlist);
-	return (0);
-}
-
-int				fillit(t_list *tetlist)
-{
-	int			size;
-
-	if (!tetlist)
+	if (!tets)
 		return (0);
-
-	size = ((t_tetrimino*)tetlist->content)->width > ((t_tetrimino*)tetlist->content)->height
-		? ((t_tetrimino*)tetlist->content)->width
-		: ((t_tetrimino*)tetlist->content)->height;
-	// TODO: try sqrt(tetcount * 4) for init size of field
-
+	mapsize = tets->width > tets->height
+		? tets->width
+		: tets->height;
 	while (1)
 	{
-		// start with coord 0,0
-		if (find_solution(0, 0, size, tetlist))
+		if (find_solution(tets, tets, mapsize))
 			break ;
-		size++;
+		mapsize++;
 	}
-	return (size);
+	return (mapsize);
 }
