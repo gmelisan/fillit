@@ -6,13 +6,13 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:17:36 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/20 20:12:33 by kemmeric         ###   ########.fr       */
+/*   Updated: 2018/12/22 19:05:32 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void			ft_assert(int exp)
+void		ft_assert(int exp)
 {
 	if (!exp)
 	{
@@ -21,42 +21,39 @@ void			ft_assert(int exp)
 	}
 }
 
-void			display_usage(void)
+void		display_usage(void)
 {
 	ft_putendl("usage: fillit FILE\n");
 	ft_putendl("Takes FILE with list of Tetriminos, and arrange them");
 	ft_putendl("in order to create the smallest square possible.");
 }
 
-void 				populate_map(char **map, t_list *tetlist)
+void		populate_map(char **map, t_tet *t)
 {
-	char			alpha[] = "ABCDEFGHIGKLMNOPQRSTUVWXYZ";
-	int				i;
-	int				k;
-	t_tetrimino		*t;
+	int		i;
+	int		k;
 
 	i = 0;
-	while (tetlist)
+	while (t)
 	{
-		t = ((t_tetrimino*)tetlist->content);
-		k = 0;
-		while (k < 4)
-			map[t->abs_coord.x + (t->coord[k]).x][t->abs_coord.y + (t->coord[k]).y] = alpha[i];
-		tetlist = tetlist->next;
+		k = -1;
+		while (++k < 4)
+			map[t->abs_coord.y + (t->coord[k]).y]
+				[t->abs_coord.x + (t->coord[k]).x] = 'A' + i;
+		t = t->next;
 		i++;
 	}
 }
 
-void			display_solution(t_list *tetlist, int n)
+void		display_solution(t_tet *tets, int n)
 {
-	char 		**map;
-	int			i;
+	char	**map;
+	int		i;
 
-	if (tetlist)
-		ft_putnbr(n);
+	ft_putnbr(n);
 	ft_putstr("\n");
 
-	if (!(map = (char**)ft_memalloc(sizeof(**map) * n + 1)))
+	if (!(map = (char**)ft_memalloc(sizeof(map) * (n + 1))))
 		return ;
 	i = -1;
 	while (++i < n)
@@ -66,9 +63,10 @@ void			display_solution(t_list *tetlist, int n)
 			ft_strarrdel(&map);
 			return ;
 		}
-		ft_memset((char*)map[i], (int)'.', n);
+		ft_memset((char*)(map[i]), (int)'.', n);
 	}
 	map[i] = 0;
+	populate_map(map, tets);
 	i = -1;
 	while (++i < n)
 		ft_putendl(map[i]);

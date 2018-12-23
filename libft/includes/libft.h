@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 13:20:56 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/21 19:09:55 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/23 17:37:59 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_isspace(int c);
 int					ft_abs(int value);
+int					ft_sqrt(int nb);
+void				ft_strarrdel(char ***tab);
 
 /*
 ** Additional functions
@@ -391,6 +393,6 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstaddback(t_list **alst, t_list *new);
-void				ft_strarrdel(char ***tab);
+size_t				ft_lstsize(t_list *lst);
 
 #endif

@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strarrdel.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 16:01:22 by kemmeric          #+#    #+#             */
-/*   Updated: 2018/12/21 21:28:03 by gmelisan         ###   ########.fr       */
+/*   Created: 2018/12/03 15:08:26 by kemmeric          #+#    #+#             */
+/*   Updated: 2018/12/22 19:37:56 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** Clears array of strings delimited by 0.
-*/
-
 #include "libft.h"
 
-void	ft_strarrdel(char ***tab)
+size_t		ft_lstsize(t_list *lst)
 {
-	size_t	i;
-	char	**t;
+	size_t	size;
 
-	if (!tab || !*tab)
-		return ;
-	t = *tab;
-	i = 0;
-	while (t[i])
+	size = 0;
+	while (lst)
 	{
-		ft_strdel(&(t[i]));
-		i++;
+		lst = lst->next;
+		size++;
 	}
-	ft_memdel((void**)tab);
+	return (size);
 }
