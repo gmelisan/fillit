@@ -6,7 +6,7 @@
 #    By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 12:48:23 by gmelisan          #+#    #+#              #
-#    Updated: 2018/12/20 19:57:45 by kemmeric         ###   ########.fr        #
+#    Updated: 2018/12/21 21:34:47 by gmelisan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,9 @@ INCDIR = ./includes
 
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -I$(INCDIR)
+
+GREEN = \033[0;32m
+NC = \033[0m
 
 OBJ = \
 ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o \
@@ -30,14 +33,15 @@ ft_putchar.o ft_putstr.o ft_putendl.o ft_putnbr.o ft_putchar_fd.o \
 ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o \
 ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o ft_lstmap.o \
 ft_abs.o ft_swap.o ft_range.o ft_power.o ft_realloc.o get_next_line.o \
-ft_lstaddback.o ft_strarrdel.o
+ft_lstaddback.o ft_strarrdel.o get_lines.o
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "\nFile \"$(NAME)\" was successfully created."
+	@echo
+	@echo "$(GREEN)File \"$(NAME)\" was successfully created.$(NC)"
 
 $(OBJ): $(INCDIR)/libft.h
 

@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 13:20:56 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/20 19:57:19 by kemmeric         ###   ########.fr       */
+/*   Updated: 2018/12/21 19:09:55 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,7 +208,7 @@ char				*ft_strtrim(char const *s);
 ** Allocates (with malloc(3)) and returns a copy of the string given as
 ** argument without whitespaces at the beginning or at the end of the
 ** string. Will be considereed as whitespaces the following characters
-** ' ', '\n' and '\t'. If s has no whitespaces at the beginning or
+v** ' ', '\n' and '\t'. If s has no whitespaces at the beginning or
 ** at the end, the function returns a copy of s. If the allocation fails
 ** the function returns NULL.
 **
@@ -359,7 +359,19 @@ typedef struct		s_gnlbuf
 	char			buf[BUFF_SIZE];
 }					t_gnlbuf;
 
+/*
+** Reads one line from fd. Line is a succession of characters until '\n'
+** or EOF. Returns 1 on success, 0 if EOF and -1 in case of error.
+*/
+
 int					get_next_line(const int fd, char **line);
+
+/* 
+** Gets array of n lines readed from fd. Returns number of readed lines
+** or -1 in case of error.
+*/
+
+int					ft_get_lines(int fd, char ***lines, int n);
 
 /*
 ** Lists manipulation functions
