@@ -6,7 +6,7 @@
 /*   By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:25:56 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/24 15:28:25 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/24 16:18:21 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ static char		**read_tet(int fd)
 ** Free list in case of error and exit.
 */
 
-void			ft_assert(int exp, t_tet **tet)
+static void		ft_assert(int exp, t_tet **tet)
 {
 	if (!exp)
 	{

@@ -1,21 +1,21 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+         #
+#    By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/20 11:53:27 by gmelisan          #+#    #+#              #
-#    Updated: 2018/12/24 13:35:39 by kemmeric         ###   ########.fr        #
+#    Updated: 2018/12/24 16:15:57 by gmelisan         ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
 NAME = fillit
 LIBDIR = ./libft
 LIB = libft.a
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -I$(LIBDIR)/includes -g
+CFLAGS = -Wall -Wextra -Werror -I$(LIBDIR)/includes
 
 OBJ = main.o display.o fillit.o handle_file.o add_tet.o check_tets.o
 
@@ -36,8 +36,10 @@ $(OBJ): fillit.h
 clean:
 	@rm -f $(OBJ)
 	@rm -f $(LIBDIR)/$(LIB)
+	@make -C $(LIBDIR) clean
 
 fclean: clean
 	@rm -f $(NAME)
+	@make -C $(LIBDIR) fclean
 
 re: fclean all

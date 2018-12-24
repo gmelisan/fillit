@@ -6,13 +6,13 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 12:34:58 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/24 13:36:59 by kemmeric         ###   ########.fr       */
+/*   Updated: 2018/12/24 16:18:20 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_tet	*tet;
 	int		n;

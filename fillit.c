@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:27:21 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/24 15:26:37 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/24 15:40:55 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** 3) If "cur" tetrimino is null then solution was found (all tets on the map)
 */
 
-int		find_collisions(t_tet *tets, t_tet *cur, int mapsize)
+static int		find_collisions(t_tet *tets, t_tet *cur, int mapsize)
 {
 	int	a;
 	int	b;
@@ -49,7 +49,7 @@ int		find_collisions(t_tet *tets, t_tet *cur, int mapsize)
 	return (0);
 }
 
-int		find_solution(t_tet *tets, t_tet *cur, int mapsize)
+static int		find_solution(t_tet *tets, t_tet *cur, int mapsize)
 {
 	int	x;
 	int	y;
@@ -73,7 +73,7 @@ int		find_solution(t_tet *tets, t_tet *cur, int mapsize)
 	return (0);
 }
 
-size_t	ft_tetsize(t_tet *tets)
+static size_t	ft_tetsize(t_tet *tets)
 {
 	size_t	size;
 
@@ -86,7 +86,7 @@ size_t	ft_tetsize(t_tet *tets)
 	return (size);
 }
 
-int		fillit(t_tet *tets)
+int				fillit(t_tet *tets)
 {
 	int	mapsize;
 

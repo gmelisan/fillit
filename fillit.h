@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 12:38:00 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/23 22:39:14 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/24 16:18:59 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,11 @@ typedef enum		e_dir
 	right
 }					t_dir;
 
-void				display_error(void);
 t_tet				*handle_file(char *path);
 int					fillit(t_tet *tets);
-void				display_usage(void);
 void				display_solution(t_tet *tets, int n);
-void				delete_tets(t_tet **tets);
+void				display_error(void);
+void				display_usage(void);
 void				add_tet(t_tet **first, char **lines);
 void				del_tets(t_tet **tet);
 int					check_tets(t_tet *tet);

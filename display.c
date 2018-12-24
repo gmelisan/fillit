@@ -6,25 +6,25 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:17:36 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/24 13:38:48 by kemmeric         ###   ########.fr       */
+/*   Updated: 2018/12/24 16:21:03 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		display_error(void)
+void			display_error(void)
 {
 	ft_putendl("error");
 }
 
-void		display_usage(void)
+void			display_usage(void)
 {
 	ft_putendl("usage: fillit FILE\n");
 	ft_putendl("Takes FILE with list of Tetriminos, and arrange them");
 	ft_putendl("in order to create the smallest square possible.");
 }
 
-void		populate_map(char **map, t_tet *t)
+static void		populate_map(char **map, t_tet *t)
 {
 	int		i;
 	int		k;
@@ -41,7 +41,7 @@ void		populate_map(char **map, t_tet *t)
 	}
 }
 
-void		display_solution(t_tet *tets, int n)
+void			display_solution(t_tet *tets, int n)
 {
 	char	**map;
 	int		i;
