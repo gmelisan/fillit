@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preparation.c                                      :+:      :+:    :+:   */
+/*   add_tet.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gmelisan <gmelisan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 13:25:56 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/21 21:27:48 by gmelisan         ###   ########.fr       */
+/*   Created: 2018/12/23 18:25:37 by gmelisan          #+#    #+#             */
+/*   Updated: 2018/12/23 21:40:46 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-static int		check_tet(char **lines)
-{
-	return (1);
-}
 
 /* 
 ** Defines width and height of tetrimino.
@@ -85,6 +80,7 @@ static t_tet	*new_tet(char **lines)
 	int			i;
 	int			j;
 	int			k;
+	/* t_coord		*coord; */
 
 	new = ft_memalloc(sizeof(*new));
 	i = 0;
@@ -96,10 +92,11 @@ static t_tet	*new_tet(char **lines)
 		{
 			if (lines[i][j] == '#')
 			{
-				coord = ft_memalloc(sizeof(*coord));
-				coord->x = j;
-				coord->y = i;
-				new->coord[k++] = coord;
+				if (k > 3)
+					return (NULL);
+				new->coord[k].x = j;
+				new->coord[k].y = i;
+				k++;
 			}
 			j++;
 		}
@@ -112,9 +109,10 @@ static t_tet	*new_tet(char **lines)
 ** Adds new tetrimino to end of the list.
 */
 
-static void		add_tet(t_tet **first, char **lines)
+void			add_tet(t_tet **first, char **lines)
 {
-	t_tet *i;
+	t_tet	*i;
+	int		k;
 
 	i = *first;
 	if (i)
@@ -125,35 +123,24 @@ static void		add_tet(t_tet **first, char **lines)
 	}
 	else
 		*first = new_tet(lines);
+	k = 0;
+	while (k < 5)
+		free(lines[k++]);
+	free(lines);
 }
 
-t_tet			*handle_file(char *path)
-{
-	int			fd;
-	int			ret;
-	char		**lines;
-	t_tet		*tet;
-	
-	fd = open(path, O_RDONLY);
-	tet = NULL;
-	while (1)
-	{
-		ret = get_lines(fd, &lines, 4); /* recode this shit */
-		if (ret != 4)
-		{
-			ft_strarrdel(&lines);
-			close(fd);
-			ft_assert(0);
-		}
-		if (check_tet(lines))
-			add_tet(&tet, lines);
-		ft_strarrdel(&lines);
-		ret = get_lines(fd, &lines, 1);
-		if (ret == 0)
+/*
+** Delete list of tetriminos.
+*/
 
-		
-		if (ret == 1 && **lines == '\0');
-		ft_strarrdel(&lines);
+void			del_tets(t_tet **tet)
+{
+	t_tet *t;
+
+	while (*tet)
+	{
+		t = (*tet)->next;
+		free(*tet);
+		*tet = t;
 	}
-	return (tetlist);
 }

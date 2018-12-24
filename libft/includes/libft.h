@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 13:20:56 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/23 17:37:59 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/23 18:54:11 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -378,6 +378,10 @@ int					ft_get_lines(int fd, char ***lines, int n);
 /*
 ** Lists manipulation functions
 */
+
+int					ft_sqrt(int nb);
+
+void				ft_strarrdel(char ***tab);
 
 typedef struct		s_list
 {

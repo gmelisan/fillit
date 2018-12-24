@@ -6,7 +6,7 @@
 #    By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 12:48:23 by gmelisan          #+#    #+#              #
-#    Updated: 2018/12/23 17:36:59 by gmelisan         ###   ########.fr        #
+#    Updated: 2018/12/23 19:02:28 by gmelisan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo
-	@echo "$(GREEN)File \"$(NAME)\" was successfully created.$(NC)"
+	@echo "\n$(GREEN)File \"$(NAME)\" was successfully created.$(NC)"
 
 $(OBJ): $(INCDIR)/libft.h
 

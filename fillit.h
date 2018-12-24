@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 12:38:00 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/22 19:05:24 by kemmeric         ###   ########.fr       */
+/*   Updated: 2018/12/23 22:39:14 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,23 @@ typedef struct		s_tet
 	struct s_tet	*next;
 }					t_tet;
 
-void				ft_assert(int exp);
+typedef enum		e_dir
+{
+	none,
+	up,
+	down,
+	left,
+	right
+}					t_dir;
+
+void				display_error(void);
 t_tet				*handle_file(char *path);
 int					fillit(t_tet *tets);
 void				display_usage(void);
 void				display_solution(t_tet *tets, int n);
 void				delete_tets(t_tet **tets);
+void				add_tet(t_tet **first, char **lines);
+void				del_tets(t_tet **tet);
+int					check_tets(t_tet *tet);
 
 #endif

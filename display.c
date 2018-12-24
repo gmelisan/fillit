@@ -6,19 +6,15 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:17:36 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/22 19:05:32 by kemmeric         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:25:50 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		ft_assert(int exp)
+void		display_error(void)
 {
-	if (!exp)
-	{
-		ft_putendl("error");
-		exit(0);
-	}
+	ft_putendl("error");
 }
 
 void		display_usage(void)
