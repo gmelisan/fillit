@@ -6,7 +6,7 @@
 /*   By: gmelisan <gmelisan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 18:30:52 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/24 00:32:41 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/24 15:28:11 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 ** If cell contains '#' return 1, else 0.
 */
 
-static int	sharp(t_tet *tet, t_coord c)
+static int		sharp(t_tet *tet, t_coord c)
 {
 	int i;
 
 	i = 0;
 	while (i < 4)
 	{
-		if (tet->coord[i].x == c.x && tet-> coord[i].y == c.y)
+		if (tet->coord[i].x == c.x && tet->coord[i].y == c.y)
 			return (1);
 		i++;
 	}
@@ -62,10 +62,10 @@ static t_dir	invert_dir(t_dir dir)
 **		up - down - left - right
 */
 
-static int	go(t_tet *tet, t_coord coord, t_dir dir)
+static int		go(t_tet *tet, t_coord coord, t_dir dir)
 {
-	int res;
-	t_dir d;
+	int		res;
+	t_dir	d;
 
 	res = 1;
 	if (!sharp(tet, coord))
@@ -80,14 +80,14 @@ static int	go(t_tet *tet, t_coord coord, t_dir dir)
 	return (res);
 }
 
-/* 
+/*
 ** Check if tetrimino is valid (at least 1 neighbour and
 ** all cells connected).
-** Squares handles separatly because otherwise infinite 
+** Squares handles separatly because otherwise infinite
 ** recursive loop happens.
 */
 
-int			check_tets(t_tet *tet)
+int				check_tets(t_tet *tet)
 {
 	int res;
 

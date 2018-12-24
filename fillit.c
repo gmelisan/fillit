@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:27:21 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/22 19:54:46 by kemmeric         ###   ########.fr       */
+/*   Updated: 2018/12/24 15:26:37 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		find_solution(t_tet *tets, t_tet *cur, int mapsize)
 	return (0);
 }
 
-size_t		ft_tetsize(t_tet *tets)
+size_t	ft_tetsize(t_tet *tets)
 {
 	size_t	size;
 

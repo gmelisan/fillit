@@ -6,7 +6,7 @@
 /*   By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:25:56 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/24 00:24:54 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/24 15:28:25 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int		check_str(char *str)
 
 /*
 ** Pre-check to have exactly 4 '#'. Need to not go out of
-** coords[4] range while adding to list subroutine. 
+** coords[4] range while adding to list subroutine.
 */
 
 static int		check_lines(char **lines)
@@ -119,7 +119,7 @@ t_tet			*handle_file(char *path)
 	char		**lines;
 	char		endl;
 	t_tet		*tet;
-	
+
 	fd = open(path, O_RDONLY);
 	tet = NULL;
 	while (1)

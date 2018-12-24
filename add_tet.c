@@ -6,13 +6,13 @@
 /*   By: gmelisan <gmelisan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 18:25:37 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/23 21:40:46 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/24 15:24:39 by gmelisan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-/* 
+/*
 ** Defines width and height of tetrimino.
 */
 
@@ -80,12 +80,11 @@ static t_tet	*new_tet(char **lines)
 	int			i;
 	int			j;
 	int			k;
-	/* t_coord		*coord; */
 
 	new = ft_memalloc(sizeof(*new));
-	i = 0;
+	i = -1;
 	k = 0;
-	while (i < 4)
+	while (++i < 4)
 	{
 		j = 0;
 		while (j < 4)
@@ -100,12 +99,11 @@ static t_tet	*new_tet(char **lines)
 			}
 			j++;
 		}
-		i++;
 	}
 	return (fix_coord(new));
 }
 
-/* 
+/*
 ** Adds new tetrimino to end of the list.
 */
 
