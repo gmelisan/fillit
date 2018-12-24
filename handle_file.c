@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_file.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:25:56 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/24 16:18:21 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/24 17:03:59 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,6 @@ t_tet			*handle_file(char *path)
 			break ;
 		ft_assert(ret != -1 && endl == '\n', &tet);
 	}
-	ft_assert(check_tets(tet) != 0, &tet);
+	ft_assert(check_tets(tet) != 0 && ft_tetsize(tet) < 27, &tet);
 	return (tet);
 }

@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 12:38:00 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/24 16:18:59 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/24 17:02:18 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void				display_usage(void);
 void				add_tet(t_tet **first, char **lines);
 void				del_tets(t_tet **tet);
 int					check_tets(t_tet *tet);
+size_t				ft_tetsize(t_tet *tets);
 
 #endif
