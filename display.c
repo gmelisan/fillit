@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:17:36 by gmelisan          #+#    #+#             */
-/*   Updated: 2018/12/23 20:25:50 by gmelisan         ###   ########.fr       */
+/*   Updated: 2018/12/24 13:38:48 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ void		display_solution(t_tet *tets, int n)
 {
 	char	**map;
 	int		i;
-
-	ft_putnbr(n);
-	ft_putstr("\n");
 
 	if (!(map = (char**)ft_memalloc(sizeof(map) * (n + 1))))
 		return ;

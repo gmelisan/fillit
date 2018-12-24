@@ -1,14 +1,14 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gmelisan <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/20 11:53:27 by gmelisan          #+#    #+#              #
-#    Updated: 2018/12/23 19:02:59 by gmelisan         ###   ########.fr        #
+#    Updated: 2018/12/24 13:35:39 by kemmeric         ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 NAME = fillit
 LIBDIR = ./libft
@@ -17,7 +17,7 @@ LIB = libft.a
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -I$(LIBDIR)/includes -g
 
-OBJ = test_check.o display.o fillit.o handle_file.o add_tet.o check_tets.o
+OBJ = main.o display.o fillit.o handle_file.o add_tet.o check_tets.o
 
 GREEN = \033[0;32m
 NC = \033[0m
